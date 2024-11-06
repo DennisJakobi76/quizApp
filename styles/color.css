@@ -1,0 +1,14 @@
+:root {
+    --body-bg: rgba(244, 237, 255);
+    --card-nav-bg: rgba(24, 60, 232);
+    --card-bg: rgba(247, 247, 247);
+    --choices-char-bg: rgba(214, 214, 214);
+    --choices-char-text: rgba(0, 0, 0);
+    --choices-bg: rgba(255, 255, 255);
+    --correct-char-bg: rgba(78, 191, 25);
+    --correct-answer-bg: rgba(183, 247, 153);
+    --wrong-char-bg: rgba(248, 24, 24);
+    --wrong-answer-bg: rgba(255, 164, 164);
+    --answer-char-text: rgba(255, 255, 255);
+    --arrow-bg: rgba(218, 223, 243);
+}

@@ -7,8 +7,21 @@
             content="width=device-width, initial-scale=1.0"
         />
         <link
+            rel="shortcut icon"
+            href="./assets/img/logo 2.png"
+            type="image/x-icon"
+        />
+        <link
+            rel="stylesheet"
+            href="./styles/color.css"
+        />
+        <link
             rel="stylesheet"
             href="./styles/style.css"
+        />
+        <link
+            rel="stylesheet"
+            href="./node_modules/bootstrap/dist/css/bootstrap.min.css"
         />
         <script
             src="./scripts/script.js"
@@ -16,5 +29,64 @@
         ></script>
         <title>Quiz App</title>
     </head>
-    <body></body>
+    <body>
+        <nav class="navbar bg-body-tertiary">
+            <div class="container-fluid">
+                <span class="navbar-brand mb-0 h1">Quiz App</span>
+            </div>
+        </nav>
+        <main class="main">
+            <div
+                class="card mb-3"
+                style="max-width: 2000px"
+            >
+                <div class="row g-0">
+                    <div class="col-md-4 card-nav">
+                        <img
+                            src="./assets/img/Group 8.png"
+                            class="img-fluid rounded-start"
+                            alt="Quiz-Logo"
+                        />
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body card-main-body">
+                            <div class="card mb-2 question-card ms-4">
+                                <div class="card-body">
+                                    <div class="answer">Frage</div>
+                                </div>
+                            </div>
+                            <div class="card mb-2 question-card ms-4">
+                                <div class="card-body selectable">
+                                    <div class="choice">A</div>
+                                    <div class="answer">Antwort 1</div>
+                                </div>
+                            </div>
+                            <div class="card mb-2 question-card ms-4">
+                                <div class="card-body selectable">
+                                    <div class="choice">B</div>
+                                    <div class="answer">Antwort 2</div>
+                                </div>
+                            </div>
+                            <div class="card mb-2 question-card ms-4">
+                                <div class="card-body selectable">
+                                    <div class="choice">C</div>
+                                    <div class="answer">Antwort 3</div>
+                                </div>
+                            </div>
+                            <div class="card mb-2 question-card ms-4">
+                                <div class="card-body selectable">
+                                    <div class="choice">D</div>
+                                    <div class="answer">Antwort 4</div>
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="left-arrow arrow">&lt;</div>
+                                <div class="right-arrow arrow">&gt;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </body>
 </html>

@@ -1,0 +1,81 @@
+body {
+    background-color: var(--body-bg) !important;
+}
+
+.main {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    width: 800px;
+    display: flex !important;
+}
+
+.card-nav {
+    background-color: var(--card-nav-bg);
+    padding: 16px;
+    width: 200px !important;
+    display: flex;
+    align-items: flex-start !important;
+    justify-content: center !important;
+}
+
+.card-main-body {
+    display: flex !important;
+    flex-direction: column;
+}
+
+.card-body {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-start !important;
+    width: 560px !important;
+}
+
+.selectable:hover {
+    cursor: pointer;
+    background-color: var(--arrow-bg);
+}
+
+.choice {
+    margin: 16px;
+    background-color: var(--choices-char-bg);
+    color: var(--choices-char-text);
+    width: 48px;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.answer {
+    margin-left: 48px;
+    font-size: 24px;
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between !important;
+    padding: 16px;
+    width: 560px !important;
+    margin-left: 28px;
+    border-top: 2px solid var(--choices-char-bg);
+}
+
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: var(--arrow-bg);
+    width: 64px;
+    height: 64px;
+    font-size: 32px;
+    font-weight: 600;
+}
