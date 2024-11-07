@@ -79,3 +79,21 @@ body {
     font-size: 32px;
     font-weight: 600;
 }
+
+.correct-answer {
+    background-color: var(--correct-answer-bg);
+
+    & .choice {
+        background-color: var(--correct-char-bg);
+        color: var(--answer-char-text);
+    }
+}
+
+.wrong-answer {
+    background-color: var(--wrong-answer-bg);
+
+    & .choice {
+        background-color: var(--wrong-char-bg);
+        color: var(--answer-char-text);
+    }
+}
