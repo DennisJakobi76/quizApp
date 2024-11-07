@@ -56,6 +56,19 @@
                         />
                     </div>
                     <div
+                        id="start-screen"
+                        class="col-md-8"
+                    >
+                        <h1>Willkommen zur besten Quiz-App wo überhaupt geben tut!!</h1>
+                        <button
+                            class="game-btn"
+                            id="start-game-btn"
+                            onclick="startQuiz()"
+                        >
+                            START
+                        </button>
+                    </div>
+                    <div
                         id="end-screen"
                         class="col-md-8 d_none"
                     >
@@ -67,6 +80,7 @@
                             <p class="end-text">COMPLETE <br />HTML QUIZ</p>
                             <p id="score-paragraph"><span id="score-text">YOUR SCORE</span><span id="score-count"> 10/10</span></p>
                             <button
+                                class="game-btn"
                                 id="replay-btn"
                                 onclick="restartQuiz()"
                             >
@@ -75,7 +89,7 @@
                         </div>
                     </div>
                     <div
-                        class="col-md-8"
+                        class="col-md-8 d_none"
                         id="question-div"
                     >
                         <div class="card-body card-main-body">

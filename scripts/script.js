@@ -9,7 +9,9 @@ const progressBar = document.getElementById("prog-bar");
 const btnNext = document.getElementById("next-question-btn");
 let correctAnswersCounter = 0;
 let percent = 0;
-let AUDIO_SUCCESS = new Audio("assets/sounds/Richtig.m4a");
+let AUDIO_START = new Audio("./assets/sounds/Startsound.m4a");
+let AUDIO_END = new Audio("./assets/sounds/Endesound.m4a");
+let AUDIO_SUCCESS = new Audio("./assets/sounds/Richtig.m4a");
 let AUDIO_FAIL = new Audio("./assets/sounds/Nö.m4a");
 
 let questions = [
@@ -92,6 +94,12 @@ function toggleDnone() {
     document.getElementById("question-div").classList.toggle("d_none");
 }
 
+function startQuiz() {
+    document.getElementById("start-screen").classList.toggle("d_none");
+    document.getElementById("question-div").classList.toggle("d_none");
+    AUDIO_START.play();
+}
+
 function restartQuiz() {
     toggleDnone();
     currentQuestion = 0;
@@ -136,6 +144,7 @@ function setProgressBarValue() {
 
 function showEndScore() {
     document.getElementById("score-count").innerHTML = `${correctAnswersCounter} / ${questions.length}`;
+    AUDIO_END.play();
 }
 
 function nextQuestion() {

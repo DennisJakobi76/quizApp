@@ -180,7 +180,7 @@ body {
     }
 }
 
-#replay-btn {
+.game-btn {
     margin-top: 40px;
     border-radius: 10px;
     width: 160px;
@@ -194,4 +194,18 @@ body {
 
 .count-questions-container {
     font-size: 24px;
+}
+
+#start-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 679px !important;
+    width: 1000px !important;
+    background-image: url("../assets/img/bg\ b.png");
+
+    & h1 {
+        text-align: center;
+    }
 }
