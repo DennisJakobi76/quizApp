@@ -5,6 +5,12 @@ const answerContainer1 = document.getElementById("answer1");
 const answerContainer2 = document.getElementById("answer2");
 const answerContainer3 = document.getElementById("answer3");
 const answerContainer4 = document.getElementById("answer4");
+const progressBar = document.getElementById("prog-bar");
+const btnNext = document.getElementById("next-question-btn");
+let correctAnswersCounter = 0;
+let percent = 0;
+let AUDIO_SUCCESS = new Audio("assets/sounds/Richtig.m4a");
+let AUDIO_FAIL = new Audio("./assets/sounds/Nö.m4a");
 
 let questions = [
     {
@@ -67,12 +73,32 @@ function init() {
 
 function showQuestion() {
     questionCounter.innerHTML = currentQuestion + 1;
-    question = questions[currentQuestion];
-    questionContainer.innerHTML = question.question;
-    answerContainer1.innerHTML = question.answer_1;
-    answerContainer2.innerHTML = question.answer_2;
-    answerContainer3.innerHTML = question.answer_3;
-    answerContainer4.innerHTML = question.answer_4;
+
+    if (currentQuestion >= questions.length) {
+        toggleDnone();
+        showEndScore();
+    } else {
+        question = questions[currentQuestion];
+        questionContainer.innerHTML = question.question;
+        answerContainer1.innerHTML = question.answer_1;
+        answerContainer2.innerHTML = question.answer_2;
+        answerContainer3.innerHTML = question.answer_3;
+        answerContainer4.innerHTML = question.answer_4;
+    }
+}
+
+function toggleDnone() {
+    document.getElementById("end-screen").classList.toggle("d_none");
+    document.getElementById("question-div").classList.toggle("d_none");
+}
+
+function restartQuiz() {
+    toggleDnone();
+    currentQuestion = 0;
+    correctAnswersCounter = 0;
+    percent = 0;
+    progressBar.style = `width: ${percent}%`;
+    init();
 }
 
 function answer(answerText) {
@@ -81,44 +107,52 @@ function answer(answerText) {
 
     if (correct) {
         document.getElementById(`ans-card-${question.right_answer}`).classList.add("correct-answer");
+        AUDIO_SUCCESS.play();
+        if (correctAnswersCounter < questions.length) {
+            correctAnswersCounter++;
+        }
     } else {
         document.getElementById(`ans-card-${answerText.slice(-1)}`).classList.add("wrong-answer");
+        AUDIO_FAIL.play();
     }
+
+    let answers = document.getElementsByClassName("selectable");
+
+    for (let i = 0; 0 < answers.length; i++) {
+        answers[i].style = `pointer-events: none`;
+
+        if (i == 3) {
+            break;
+        }
+    }
+    btnNext.disabled = false;
 }
 
-function lastQuestion() {
-    resetAnswers();
-    if (currentQuestion == 0) {
-        currentQuestion = questions.length - 1;
-    } else {
-        currentQuestion--;
-    }
+function setProgressBarValue() {
+    percent = (currentQuestion + 1) / questions.length;
+    percent = Math.round(percent * 100);
+    progressBar.style = `width: ${percent}%`;
+}
 
-    showQuestion();
+function showEndScore() {
+    document.getElementById("score-count").innerHTML = `${correctAnswersCounter} / ${questions.length}`;
 }
 
 function nextQuestion() {
     resetAnswers();
-    if (currentQuestion == questions.length - 1) {
-        currentQuestion = 0;
-    } else {
-        currentQuestion++;
-    }
-
+    setProgressBarValue();
+    currentQuestion++;
     showQuestion();
+    btnNext.disabled = true;
 }
 
 function resetAnswers() {
     let answers = document.getElementsByClassName("selectable");
 
     for (let i = 0; 0 < answers.length; i++) {
-        if (answers[i].classList.contains("correct-answer")) {
-            answers[i].classList.remove("correct-answer");
-        }
-
-        if (answers[i].classList.contains("wrong-answer")) {
-            answers[i].classList.remove("wrong-answer");
-        }
+        answers[i].classList.remove("correct-answer");
+        answers[i].classList.remove("wrong-answer");
+        answers[i].style = ``;
 
         if (i == 3) {
             break;

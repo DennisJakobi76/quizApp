@@ -30,11 +30,17 @@
         <title>Quiz App</title>
     </head>
     <body onload="init()">
-        <nav class="navbar bg-body-tertiary">
-            <div class="container-fluid">
-                <span class="navbar-brand mb-0 h1">Quiz App</span>
-            </div>
-        </nav>
+        <div
+            class="progress"
+            role="progressbar"
+            aria-label="Example with label"
+        >
+            <div
+                id="prog-bar"
+                class="progress-bar"
+                style="width: 0%"
+            ></div>
+        </div>
         <main class="main">
             <div
                 id="main-card-container"
@@ -49,7 +55,29 @@
                             alt="Quiz-Logo"
                         />
                     </div>
-                    <div class="col-md-8">
+                    <div
+                        id="end-screen"
+                        class="col-md-8 d_none"
+                    >
+                        <div class="end-screen-circle">
+                            <img
+                                src="./assets/img/Group 5.png"
+                                alt="End-Bildschirm"
+                            />
+                            <p class="end-text">COMPLETE <br />HTML QUIZ</p>
+                            <p id="score-paragraph"><span id="score-text">YOUR SCORE</span><span id="score-count"> 10/10</span></p>
+                            <button
+                                id="replay-btn"
+                                onclick="restartQuiz()"
+                            >
+                                REPLAY
+                            </button>
+                        </div>
+                    </div>
+                    <div
+                        class="col-md-8"
+                        id="question-div"
+                    >
                         <div class="card-body card-main-body">
                             <div class="card mb-2 question-card ms-4">
                                 <div class="card-body">
@@ -111,23 +139,19 @@
                                     ></div>
                                 </div>
                             </div>
-                            <div class="card-footer">
-                                <div
-                                    class="left-arrow arrow"
-                                    onclick="lastQuestion()"
-                                >
-                                    &lt;
-                                </div>
-                                <div class="count-questions-container">
-                                    <span>Frage <b id="question-counter">1</b> von <b id="all-questions-count"></b> Fragen</span>
-                                </div>
-                                <div
-                                    class="right-arrow arrow"
-                                    onclick="nextQuestion()"
-                                >
-                                    &gt;
-                                </div>
+                        </div>
+                        <div class="card-footer">
+                            <div class="count-questions-container">
+                                <span>Frage <b id="question-counter">1</b> von <b id="all-questions-count"></b> Fragen</span>
                             </div>
+                            <button
+                                disabled
+                                id="next-question-btn"
+                                class="right-arrow arrow"
+                                onclick="nextQuestion()"
+                            >
+                                &gt;
+                            </button>
                         </div>
                     </div>
                 </div>
