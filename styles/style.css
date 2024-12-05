@@ -305,6 +305,13 @@ body {
         width: 600px !important;
     }
 
+    #next-question-btn {
+        width: 44px;
+        height: 44px;
+        font-size: 44px;
+        padding-top: 8px;
+    }
+
     #start-screen {
         width: 458px !important;
     }
@@ -505,5 +512,12 @@ body {
 
     #mobile-head {
         display: flex;
+    }
+
+    #next-question-btn {
+        width: 32px;
+        height: 32px;
+        font-size: 32px;
+        padding-top: 4px;
     }
 }
